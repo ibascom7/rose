@@ -1,0 +1,7 @@
+defmodule RoseWeb.PageController do
+  use RoseWeb, :controller
+
+  def home(conn, _params) do
+    render(conn, :home)
+  end
+end
