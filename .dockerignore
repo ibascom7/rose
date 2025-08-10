@@ -1,0 +1,36 @@
+# Dependencies
+deps/
+_build/
+assets/node_modules/
+
+# Generated files
+priv/static/
+
+# Development files
+.git/
+.gitignore
+README.md
+*.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+cover/
+doc/
+
+# Temporary files
+tmp/
+*.tmp
+
+# Docker files
+Dockerfile*
+docker-compose*
+.dockerignore

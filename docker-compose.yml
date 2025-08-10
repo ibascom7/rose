@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: rose_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./priv/repo/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  web:
+    build: .
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/rose_dev
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE:-supersecretkeythatneedstobeatleast64characterslong123456789}
+      PHX_HOST: localhost
+      PHX_SERVER: true
+    ports:
+      - "4000:4000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - /app/deps
+      - /app/_build
+      - /app/assets/node_modules
+    stdin_open: true
+    tty: true
+
+volumes:
+  postgres_data:
