@@ -9,10 +9,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js for asset compilation
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
-
 # Create app directory
 WORKDIR /app
 
@@ -26,16 +22,15 @@ COPY mix.exs mix.lock ./
 # Install dependencies
 RUN mix deps.get
 
-# Copy assets configuration
-COPY assets/package.json assets/package-lock.json* ./assets/
-RUN cd assets && npm install
-
 # Copy application code
 COPY . .
 
-# Compile assets
-RUN cd assets && npm run build
-RUN mix assets.deploy
+# Update dependencies after copying full source
+RUN mix deps.get
+
+# Setup and compile assets (Phoenix handles this via esbuild/tailwind)
+RUN mix assets.setup
+RUN mix assets.build
 
 # Compile the application
 RUN mix compile
