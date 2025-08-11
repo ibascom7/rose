@@ -4,7 +4,7 @@
 
 - /home:
    - Big picture overview and pictures
-- /about:
+- /about-us:
    - History and goals of org
 - /donate:
    - page with info about our campaigns and what donations would go towards.

@@ -18,6 +18,7 @@ defmodule RoseWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/about-us", PageController, :about
   end
 
   # Other scopes may use custom stacks.

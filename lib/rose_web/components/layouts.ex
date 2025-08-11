@@ -45,7 +45,9 @@ defmodule RoseWeb.Layouts do
       <div class="flex-none">
         <ul class="flex flex-column px-1 space-x-4 items-center">
           <li>
-            <.theme_toggle />
+            <a href="/about-us" class="text-gray-600 hover:text-gray-900 font-medium">
+              About Us
+            </a>
           </li>
           <li>
             <a href="https://donorbox.org/crusade-for-freedom" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
