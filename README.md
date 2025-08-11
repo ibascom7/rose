@@ -4,7 +4,8 @@
 
 - /home:
    - Big picture overview and pictures
-- /about
+- /about:
+   - History and goals of org
 - /donate:
    - page with info about our campaigns and what donations would go towards.
    - donation button link to https://donorbox.org/crusade-for-freedom
