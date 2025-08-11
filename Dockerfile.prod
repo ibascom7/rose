@@ -27,6 +27,9 @@ RUN mix deps.compile
 # Copy application code
 COPY . .
 
+# Ensure all dependencies are up to date
+RUN mix deps.get --only=prod
+
 # Setup and compile assets
 RUN mix assets.setup
 RUN mix assets.deploy
