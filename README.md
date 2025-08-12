@@ -44,7 +44,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
    - `SECRET_KEY_BASE` (generate with `mix phx.gen.secret`)
    - `DATABASE_URL` (Railway will provide this)
    - `PHX_HOST` (your Railway domain)
-3. Railway will automatically build using `Dockerfile.prod`
+3. Railway will automatically build using `Dockerfile` with production settings
 
 ### Docker Production
 ```bash

@@ -17,7 +17,10 @@ services:
   web:
     build: 
       context: .
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
+      target: production
+      args:
+        MIX_ENV: prod
     environment:
       DATABASE_URL: postgres://${DATABASE_USER:-postgres}:${DATABASE_PASSWORD}@db:5432/${DATABASE_NAME:-rose_prod}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}

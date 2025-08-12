@@ -50,7 +50,12 @@ defmodule RoseWeb.Layouts do
             </a>
           </li>
           <li>
-            <a href="https://donorbox.org/crusade-for-freedom" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://donorbox.org/crusade-for-freedom"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Donate
             </a>
           </li>
